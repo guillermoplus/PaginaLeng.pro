@@ -2,18 +2,40 @@
 
 session_start();
 
-//$connect = mysqli_connect('localhost', 'root', '', 'skatebicy') or die('no se pudo conectar: ' . mysql_error());
-$link = "mysql:host=localhost;dbname=skatebicy";
-$userName = "root";
-$password = "";
+class Conexion
+{
+    private $servidor = "localhost";
+    private $base_datos = "skatebicy";
+    private $usuario = "root";
+    private $password = "";
 
-try{
-  $conexion = new PDO($link, $userName, $password);
-  //echo "conexion con base de datos exitosa";
+    private $conexion;
 
-}catch(PDOExcemption $e){
-  //echo "Se ha producido un error".$e;
+    public function __construct()
+    {
+        $this->crearConexion();
+    }
 
+    public function crearConexion()
+    {
+        $cadena_mysql = "mysql:host=" . $this->servidor . ";dbname=" . $this->base_datos;
+
+        try {
+            $this->conexion = new PDO($cadena_mysql, $this->usuario, $this->password);
+        } catch (PDOExcemption $e) {
+            echo "Error al intentar conectar con la base de datos: " . $e->getMessage();
+        }
+    }
+
+    public function getConexion()
+    {
+        return $this->conexion;
+    }
+
+    public function cerrarConexion()
+    {
+        $this->conexion = null;
+    }
 }
 
 ?>

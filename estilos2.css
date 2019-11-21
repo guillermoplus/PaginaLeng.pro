@@ -1,28 +1,32 @@
-*{
+* {
     box-sizing: border-box;
 }
-body{
+
+body {
     margin: 10%;
     font-family: 'Roboto Slab', serif;
-    background: linear-gradient(rgba(109, 114, 116, 0.7),rgba(4, 37, 39, 0.5)),url(./imagen/fondoo.jpg);
+    background: linear-gradient(rgba(109, 114, 116, 0.7), rgba(4, 37, 39, 0.5)), url(./imagen/fondoo.jpg);
     background-size: cover;
 
-    }
-h1{
+}
+
+h1 {
     color: rgb(255, 255, 255);
     text-align: center;
 
-}  
-h2{
-    color: rgba(30, 4, 51, 0.384);
-    text-align: center; 
-} 
-
-.contenedor-inputs{
-color: rgb(0, 0, 0);  
-margin: 40px;
 }
-.form-registrar{
+
+h2 {
+    color: rgba(30, 4, 51, 0.384);
+    text-align: center;
+}
+
+.contenedor-inputs {
+    color: rgb(0, 0, 0);
+    margin: 40px;
+}
+
+.form-registrar {
     width: 98%;
     max-width: 500px;
     display: flex;
@@ -30,4 +34,4 @@ margin: 40px;
     justify-content: center;
     margin: auto;
     background: #c0b8d0;
-  }
+}
