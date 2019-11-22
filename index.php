@@ -1,3 +1,18 @@
+<?php
+
+include('conexion.php');
+
+$db = new Conexion();
+
+$result = $db->getConexion()->query("SELECT * FROM clientes");
+
+foreach ($result as $row) {
+    var_export($row);
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 
