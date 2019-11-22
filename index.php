@@ -1,30 +1,23 @@
 <?php
 
 include('conexion.php');
-
 $db = new Conexion();
 
 $result = $db->consulta("SELECT * FROM clientes");
 
-foreach ($result as $row) {
-    var_export($row);
-}
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
-    <link rel="stylesheet" href="estilos.css">
     <meta charset="utf-8">
     <title>SkateBicy Rental</title>
-    <link
-            href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
+
+    <?php
+    include('estilos.php');
+    ?>
 </head>
-
-
 <body>
 
 <header>
@@ -58,14 +51,15 @@ foreach ($result as $row) {
             <h1>Skatebicy Rental</h1>
             <h2>Siempre a tu servicio</h2>
             <a href="registro.php">Regístrate</a>
-            <h3>inicia sesion aqui</h3>
+            <a href="login.php">Iniciar sesión</a>
         </div>
     </div>
 
 </header>
 
+<?php
+include('scripts.php');
+?>
 
 </body>
-
-
 </html>

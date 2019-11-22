@@ -7,7 +7,7 @@ class Conexion
     private $servidor = "localhost";
     private $base_datos = "skatebicy";
     private $usuario = "root";
-    private $password = "";
+    private $password = "root";
 
     private $conexion;
 
