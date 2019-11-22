@@ -53,7 +53,7 @@ $vehiculos = $db->consulta("SELECT * FROM vehiculo as v WHERE v.`disponibilidad`
                         Then, link them off to some social networking sites or contact information.</p>
                 </div>
                 <div class="col-sm-4 offset-md-1 py-4">
-                    <h4 class="text-white">Contact</h4>
+                    <h4 class="text-white">MENÚ</h4>
                     <ul class="list-unstyled">
                         <li><a href="#" class="text-white">Follow on Twitter</a></li>
                         <li><a href="#" class="text-white">Like on Facebook</a></li>

@@ -34,6 +34,8 @@ class Conexion
 
     public function consulta($sql)
     {
+        $this->getConexion()->query("set names utf8");
+
         return $this->getConexion()->query($sql);
     }
 
