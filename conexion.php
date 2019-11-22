@@ -32,6 +32,11 @@ class Conexion
         return $this->conexion;
     }
 
+    public function consulta($sql)
+    {
+        return $this->getConexion()->query($sql);
+    }
+
     public function cerrarConexion()
     {
         $this->conexion = null;

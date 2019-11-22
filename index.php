@@ -4,7 +4,7 @@ include('conexion.php');
 
 $db = new Conexion();
 
-$result = $db->getConexion()->query("SELECT * FROM clientes");
+$result = $db->consulta("SELECT * FROM clientes");
 
 foreach ($result as $row) {
     var_export($row);
