@@ -1,5 +1,5 @@
 #banner-home {
-    background-image: url('../imagen/fondoo.jpg');
+    background-image: linear-gradient(rgba(109, 114, 116, 0.7), rgba(4, 37, 39, 0.5)), url('../imagen/fondoo.jpg');
     background-position: center center;
     background-size: cover;
     
