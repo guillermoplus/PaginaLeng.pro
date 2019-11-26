@@ -3,6 +3,7 @@
 session_start();
 
 include('conexion.php');
+include('usuario.php');
 $db = new Conexion();
 $login = new Usuario($db);
 
@@ -11,7 +12,7 @@ $vehiculos = $db->consulta("SELECT * FROM vehiculo as v WHERE v.`disponibilidad`
 if (isset($_SESSION['usuario'])) {
     $usuario = $_SESSION['usuario'];
 
-    if (isset($_SESSION['accion']) and $_SESSION['accion'] == 'salir') {
+    if (isset($_GET['accion']) and $_GET['accion'] == 'salir') {
         $login->cerrarSesion();
     }
 }
@@ -70,7 +71,7 @@ if (isset($_SESSION['usuario'])) {
                         <?php
                         if (isset($usuario)) {
                             echo '<li><a href="#" class="text-white"><i class="fas fa-user-circle"></i> ' . $usuario['nombres'] . '</a></li>';
-                            echo '<li><a href="/?accion=salir" class="text-white">Cerrar sesión</a></li>';
+                            echo '<li><a href="index.php?accion=salir" class="text-white">Cerrar sesión</a></li>';
                         }
                         ?>
                         <li><a href="#" class="text-white">Follow on Twitter</a></li>

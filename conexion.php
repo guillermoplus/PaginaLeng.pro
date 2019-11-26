@@ -8,7 +8,7 @@ class Conexion
     private $base_datos = "skatebicy";
     private $usuario = "root";
     private $password = "root";
-
+    private $puerto = '8889';
     private $conexion;
 
     public function __construct()
@@ -18,7 +18,7 @@ class Conexion
 
     public function crearConexion()
     {
-        $cadena_mysql = "mysql:host=" . $this->servidor . ";dbname=" . $this->base_datos;
+        $cadena_mysql = "mysql:host=" . $this->servidor . ";port=" . $this->puerto . ";dbname=" . $this->base_datos;
 
         try {
             $this->conexion = new PDO($cadena_mysql, $this->usuario, $this->password);
