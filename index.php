@@ -1,9 +1,21 @@
 <?php
 
+session_start();
+
 include('conexion.php');
 $db = new Conexion();
+$login = new Usuario($db);
 
 $vehiculos = $db->consulta("SELECT * FROM vehiculo as v WHERE v.`disponibilidad` = 1");
+
+if (isset($_SESSION['usuario'])) {
+    $usuario = $_SESSION['usuario'];
+
+    if (isset($_SESSION['accion']) and $_SESSION['accion'] == 'salir') {
+        $login->cerrarSesion();
+    }
+}
+
 
 ?>
 
@@ -55,6 +67,12 @@ $vehiculos = $db->consulta("SELECT * FROM vehiculo as v WHERE v.`disponibilidad`
                 <div class="col-sm-4 offset-md-1 py-4">
                     <h4 class="text-white">MENÚ</h4>
                     <ul class="list-unstyled">
+                        <?php
+                        if (isset($usuario)) {
+                            echo '<li><a href="#" class="text-white"><i class="fas fa-user-circle"></i> ' . $usuario['nombres'] . '</a></li>';
+                            echo '<li><a href="/?accion=salir" class="text-white">Cerrar sesión</a></li>';
+                        }
+                        ?>
                         <li><a href="#" class="text-white">Follow on Twitter</a></li>
                         <li><a href="#" class="text-white">Like on Facebook</a></li>
                         <li><a href="#" class="text-white">Email me</a></li>
@@ -82,10 +100,14 @@ $vehiculos = $db->consulta("SELECT * FROM vehiculo as v WHERE v.`disponibilidad`
         <div class="container">
             <h1 class="jumbotron-heading text-white">Siempre a tu servicio</h1>
             <p class="lead text-white">Somos el servicio de alquiler de patinetas y bicicletas lider del mercado.</p>
-            <p>
-                <a href="registrarse.php" class="btn btn-primary my-2">Registrarse</a>
-                <a href="login.php" class="btn btn-secondary my-2">Iniciar sesión</a>
-            </p>
+            <?php
+            if (!isset($usuario)) {
+                echo '<p>';
+                echo '<a href="registrarse.php" class="btn btn-primary my-2">Registrarse</a>';
+                echo '<a href="login.php" class="btn btn-secondary my-2">Iniciar sesión</a>';
+                echo '</p>';
+            }
+            ?>
         </div>
     </section>
 

@@ -6,13 +6,15 @@ $db = new Conexion();
 $login = new Usuario($db);
 
 if (!empty($_POST['email']) and !empty($_POST['password'])) {
-    $login->iniciarSesion($_POST['email'], $_POST['password']);
-}
+    $usuario = $login->iniciarSesion($_POST['email'], $_POST['password']);
 
-if (!empty($_SESSION['user_id'])) {
-    echo "Estás logueado!!";
-} else {
-    echo "No estás logueado.";
+    if ($usuario) {
+        session_start();
+        $_SESSION['usuario'] = $usuario;
+        header('Location: index.php');
+    } else {
+        $error = 'ERROR. El usuario o la contraseña no coinciden.';
+    }
 }
 
 ?>
@@ -51,6 +53,13 @@ if (!empty($_SESSION['user_id'])) {
 </head>
 <body class="text-center">
 <form class="form-signin" method="post" action="login.php">
+    <?php
+    if (isset($error)) {
+        echo '<div class="alert alert-danger">';
+        echo $error;
+        echo '</div>';
+    }
+    ?>
     <h1 class="h1">Skatebicy</h1>
     <h1 class="h3 mb-3 font-weight-normal">Iniciar sesión</h1>
     <label for="inputEmail" class="sr-only">Email</label>

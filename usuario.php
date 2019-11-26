@@ -9,8 +9,6 @@ class Usuario
 
     public function __construct(Conexion $db)
     {
-        session_start();
-
         $this->db = $db;
     }
 
@@ -19,14 +17,19 @@ class Usuario
         $this->email = trim($email);
         $this->password = trim($password);
 
+
         $usuarios = $this->db->consulta("SELECT * FROM usuarios as u WHERE u.email = '" . $this->email . "' AND u.password = '" . $this->password . "' LIMIT 1");
 
         foreach ($usuarios as $u) {
-            var_dump($u);
-            $_SESSION['user_id'] = $u['id'];
+            $this->usuario = $u;
         }
 
-        var_dump($_SESSION['user_id']);
+        return $this->usuario;
+    }
+
+    public function cerrarSesion()
+    {
+        session_destroy();
     }
 }
 
