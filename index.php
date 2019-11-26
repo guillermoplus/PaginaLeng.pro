@@ -74,9 +74,6 @@ if (isset($_SESSION['usuario'])) {
                             echo '<li><a href="index.php?accion=salir" class="text-white">Cerrar sesión</a></li>';
                         }
                         ?>
-                        <li><a href="#" class="text-white">Follow on Twitter</a></li>
-                        <li><a href="#" class="text-white">Like on Facebook</a></li>
-                        <li><a href="#" class="text-white">Email me</a></li>
                     </ul>
                 </div>
             </div>
@@ -128,7 +125,7 @@ if (isset($_SESSION['usuario'])) {
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
                                         <a href="#" class="btn btn-sm btn-secondary">Info</a>
-                                        <a href=#" class="btn btn-sm btn-primary">Alquilar</a>
+                                        <a href="#" class="btn btn-sm btn-primary">Alquilar</a>
                                     </div>
                                     <small class="text-muted">Hora $ <?php echo $vehiculo['precio_hora'] ?></small>
                                     <small class="text-muted">Día $ <?php echo $vehiculo['precio_dia'] ?></small>
