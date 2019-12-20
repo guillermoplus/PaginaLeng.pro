@@ -7,8 +7,8 @@ class Conexion
     private $servidor = "localhost";
     private $base_datos = "skatebicy";
     private $usuario = "root";
-    private $password = "root";
-    private $puerto = '8889';
+    private $password = "";
+    private $puerto = '3306';
     private $conexion;
 
     public function __construct()

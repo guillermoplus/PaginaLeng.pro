@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+//session_start();
 
 include('conexion.php');
 include('usuario.php');
@@ -150,7 +150,7 @@ if (isset($_SESSION['usuario'])) {
             <a href="#">Volver arriba</a>
         </p>
         <p>Regístrate y alquila tu vehículo fácilmente.</p>
-        <p>Made with <i class="fas fa-heart" style="color: #1D8AE4"></i> by Piolín.</p>
+        <p>Made with <i class="fas fa-heart" style="color: #1D8AE4"></i> by Piolín for LBGC.</p>
     </div>
 </footer>
 <?php
