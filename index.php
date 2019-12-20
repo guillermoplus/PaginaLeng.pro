@@ -14,6 +14,7 @@ if (isset($_SESSION['usuario'])) {
 
     if (isset($_GET['accion']) and $_GET['accion'] == 'salir') {
         $login->cerrarSesion();
+        header('Location: index.php');
     }
 }
 
