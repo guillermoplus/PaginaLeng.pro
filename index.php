@@ -61,10 +61,8 @@ if (isset($_SESSION['usuario'])) {
         <div class="container">
             <div class="row">
                 <div class="col-sm-8 col-md-7 py-4">
-                    <h4 class="text-white">About</h4>
-                    <p class="text-muted">Add some information about the album below, the author, or any other
-                        background context. Make it a few sentences long so folks can pick up some informative tidbits.
-                        Then, link them off to some social networking sites or contact information.</p>
+                    <h4 class="text-white">Prov 4:23</h4>
+                    <p class="text-muted">Sobre toda cosa guardada, guarda tu corazón; Porque de él mana la vida..</p>
                 </div>
                 <div class="col-sm-4 offset-md-1 py-4">
                     <h4 class="text-white">MENÚ</h4>
@@ -73,6 +71,8 @@ if (isset($_SESSION['usuario'])) {
                         if (isset($usuario)) {
                             echo '<li><a href="#" class="text-white"><i class="fas fa-user-circle"></i> ' . $usuario['nombres'] . '</a></li>';
                             echo '<li><a href="index.php?accion=salir" class="text-white">Cerrar sesión</a></li>';
+                        } else {
+                            echo '<li><a href="/login.php" class="text-white">Iniciar sesión</a></li>';
                         }
                         ?>
                     </ul>

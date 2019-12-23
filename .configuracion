@@ -1,0 +1,5 @@
+SERVIDOR=localhost
+BASE_DE_DATOS=skatebicy
+USUARIO=root
+PASSWORD=
+PUERTO=3306
